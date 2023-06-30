@@ -1,9 +1,15 @@
 import React from "react";
 
-const Border = ({border}) => {
+const Border = ({border, countries}) => {
+
+    const borderCountry = countries.find(
+        country => country.cca3 === border
+    )
+
+    const borderName = borderCountry.name.common
   
     return(
-        <li>{border}</li>
+        <li>{borderName}</li>
     )
 
 }

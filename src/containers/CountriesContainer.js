@@ -8,7 +8,6 @@ const CountryContainer = () => {
     const [countries, setCountries] = useState([]);
     const [SelectedCountryCCA3Code, setSelectedCountryCCA3Code] = useState(null);
     const [favouriteCountries, setFavouriteCountries] = useState([]);
-    // const [neighbouringCountries, setNeighbouringCountries] = useState([])
 
     useEffect(() => {
       getCountries();
@@ -57,7 +56,7 @@ const CountryContainer = () => {
                 <p></p>
             </ul>
             </div>
-            {SelectedCountryCCA3Code ?<CountryDetail country={selectedCountry} addToFavourites={addToFavourites}/> : null}
+            {SelectedCountryCCA3Code ?<CountryDetail country={selectedCountry} addToFavourites={addToFavourites} countries={countries}/> : null}
             
 
 

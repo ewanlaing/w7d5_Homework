@@ -1,7 +1,7 @@
 import React from "react";
 import Border from '../components/Border';
 
-const CountryDetail = ({country, addToFavourites}) => {
+const CountryDetail = ({country, addToFavourites, countries}) => {
 
   const handleForSubmit = (event) => {
     event.preventDefault()
@@ -10,12 +10,20 @@ const CountryDetail = ({country, addToFavourites}) => {
 
 
 const borders = country.borders.map((border)=>{
-    if(country.borders.length > 0){
-        return <Border border={border}></Border>
-    }else{
-        return<h2>None</h2>
+    if(!country.borders){
+        return <h1>None</h1>
+}else{
+        return <Border border={border} countries={countries}></Border>
+   
 
 }})
+
+// const borders = function(){
+//         country.borders.map((border) => {
+//             return <Border border={border} countries={countries}/>
+       
+//     })}
+
 
  
 
@@ -31,6 +39,7 @@ const borders = country.borders.map((border)=>{
         <ul>
             {borders}
         </ul>
+
         <form onSubmit={handleForSubmit}>
             <label for="favouritesubmit">Add to Favourites</label>
             <input type="submit"></input>
