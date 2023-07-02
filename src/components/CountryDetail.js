@@ -9,20 +9,26 @@ const CountryDetail = ({country, addToFavourites, countries}) => {
   }
 
 
-const borders = country.borders.map((border)=>{
-    if(!country.borders){
-        return <h1>None</h1>
+const borders = [];
+if (!country.borders){
+  borders.push(<h2>None!</h2>);
 }else{
-        return <Border border={border} countries={countries}></Border>
+  country.borders.forEach((border) => {
+    borders.push(<Border border={border} countries={countries}/>);
+  })
+}
+
+
+// const borders = country.borders.map((border)=>{
+//     if(!country.borders){
+//         return <h1>None</h1>
+// }else{
+//         return <Border border={border} countries={countries}></Border>
    
 
-}})
+// }})
 
-// const borders = function(){
-//         country.borders.map((border) => {
-//             return <Border border={border} countries={countries}/>
-       
-//     })}
+
 
 
  
